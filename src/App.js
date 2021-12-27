@@ -1,9 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
 import alanBtn from '@alan-ai/alan-sdk-web';
 import React, {useEffect, useState} from 'react';
 import NewArticles from './components/NewArticles/NewArticles';
-
+import Instractions from './components/Instractions/Instractions';
+import logo from './img/download.jpg'
 function App() {
 
   const alan_api_key = process.env.REACT_APP_ALAN_API_KEY;
@@ -36,9 +37,12 @@ function App() {
 
   return (
     <>
-    <h1 style={{textAlign: 'center'}}>Alan ai News App</h1>
+   <div className="logo">
+     <img src={logo} alt="" />
+   </div>
+    
     {
-    <NewArticles articles={newArticles}></NewArticles>
+    newArticles.length? <NewArticles articles={newArticles}></NewArticles> : <Instractions></Instractions>
     }
     </>
   );
